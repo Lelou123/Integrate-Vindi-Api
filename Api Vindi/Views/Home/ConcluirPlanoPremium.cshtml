@@ -1,0 +1,201 @@
+﻿@model Api_Vindi.Models.Clientes.Cliente;
+
+
+<h1>Plano Premium</h1>
+<div class="container bg-light">
+	<main>
+		<div class="py-5 text-center">
+			<h2>Formulário de cadastro</h2>
+			<p class="lead">Entre suas informações para concluir o seu cadastro</p>
+		</div>
+
+		<div class="row g-5">
+			<div class="col-md-5 col-lg-4 order-md-last">
+				<h4 class="d-flex justify-content-between align-items-center mb-3">
+					<span class="text-primary">Seu carrinho</span>
+					<span class="badge bg-primary rounded-pill">1</span>
+				</h4>
+				<ul class="list-group mb-3">
+					<li class="list-group-item d-flex justify-content-between lh-sm">
+						<div>
+							<h6 class="my-0">Plano Digital Plus</h6>
+							<small class="text-muted">Assinatura plus no site web vindi</small>
+						</div>
+						<span class="text-muted">R$ 29,90</span>
+					</li>					
+					
+					<li class="list-group-item d-flex justify-content-between">
+						<span>Total (R$)</span>
+						<strong>R$ 29,90</strong>
+					</li>
+				</ul>
+
+				<form class="card p-2">
+					<div class="input-group">
+						<input disabled type="text"  class="form-control" placeholder="Código promocional">
+						<button type="submit" class="btn btn-secondary">Resgatar</button>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-7 col-lg-8">
+				<h4 class="mb-3">Dados de cobrança</h4>
+				<form asp-action="ConcluirPlanoPremium" asp-controller="Home" class="needs-validation" novalidate>
+					<div class="row g-3">
+
+						<div class="col-12">
+							<label for="username" class="form-label">Nome completo</label>
+							<div class="input-group has-validation">
+								<span class="input-group-text"></span>
+								<input type="text" class="form-control" asp-for="Name" id="username" placeholder="Nome e Sobrenome" required>
+								<div class="invalid-feedback">
+									Usuario é necessario
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12">
+							<label for="email" class="form-label">Email <span class="text-muted"></span></label>
+							<input asp-for="Email" type="email" class="form-control" id="email" placeholder="eu@gmail.com">
+							<div class="invalid-feedback">
+								Por favor entre um email válido para os acompanhar a compra
+							</div>
+						</div>
+
+						<div class="col-12">
+							<label for="CPF" class="form-label">CPF <span class="text-muted"></span></label>
+							<input asp-for="Registry_Code" type="text" class="form-control" id="cpf" placeholder="xxx.xxx.xxx-xx">
+							<div class="invalid-feedback">
+								Por favor entre um cpf valido
+							</div>
+						</div>
+
+						<div class="col-12">
+							<label for="address" class="form-label">Rua</label>
+							<input type="text" asp-for="Address.Street" class="form-control" id="address" placeholder="Rua..." required>
+							<div class="invalid-feedback">
+								Por favor entre o seu endereço de entrega
+							</div>
+						</div>
+
+						<div class="col-12">
+							<label for="address" class="form-label">Bairro</label>
+							<input type="text" asp-for="Address.Neighborhood" class="form-control" id="address" placeholder="Bairro..." required>
+							<div class="invalid-feedback">
+								Por favor entre o seu endereço de entrega
+							</div>
+						</div>
+
+						<div class="col-12">
+							<label for="address2" class="form-label">Endereço 2 <span class="text-muted">(Opcional)</span></label>
+							<input type="text" asp-for="Address.Additional_Details" class="form-control" id="address2" placeholder="Apartamento ou complemento">
+						</div>
+
+						<div class="col-md-5">
+							<label for="country" class="form-label">Pais</label>
+							<select asp-for="Address.Country" class="form-select" id="country" required>
+								<option value="">Choose...</option>
+								<option>Brasil</option>
+							</select>
+							<div class="invalid-feedback">
+								Por favor entre um pais válido
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<label for="state" class="form-label">Estado</label>
+							<select asp-for="Address.State" class="form-select" id="state" required>
+								<option value="">Choose...</option>
+								<option>São paulo</option>
+							</select>
+							<div class="invalid-feedback">
+								Por favor entre um estado válido
+							</div>
+						</div>
+
+						<div class="col-md-3">
+							<label for="zip" class="form-label">CEP</label>
+							<input asp-for="Address.ZipCode" type="text" class="form-control" id="zip" placeholder="...." required>
+							<div class="invalid-feedback">
+								Código de CEP é necessario
+							</div>
+						</div>
+
+
+						<div class="col-4">
+							<label for="address2" class="form-label">Numero Residencial <span class="text-muted"></span></label>
+							<input type="text" asp-for="Address.Number" class="form-control" id="address2" placeholder="...">
+						</div>
+
+						<div class="col-8">
+							<label for="address2" class="form-label">Cidade <span class="text-muted"></span></label>
+							<input type="text" asp-for="Address.City" class="form-control" id="address2" placeholder="...">
+						</div>
+
+						
+					</div>
+
+
+					<hr class="my-4">
+
+
+					<h1 class="mb-5">Pagamento</h1>
+
+					<div class="col-md-7 col-lg-8  text-center">
+
+						<div class="my-3">
+							<div class="form-check">
+								<input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+								<label class="form-check-label" for="credit">Cartão de crédito</label>
+							</div>
+						</div>
+
+						<div class="row gy-3">
+							<div class="col-md-8">
+								<label for="cc-name" class="form-label">Nome completo no cartão</label>
+								<input asp-for="Name" type="text" class="form-control" id="cc-name" placeholder="Jorge joao" required>
+								<small class="text-muted">Nome completo mostrado no cartão</small>
+								<div class="invalid-feedback">
+									Nome no cartão é necessário
+								</div>
+							</div>
+
+							<div class="col-md-8">
+								<label for="cc-number" class="form-label">Número do cartão de crédito</label>
+								<input type="text" asp-for="MetodoPagamento.NumeroCartao" class="form-control" id="cc-number" placeholder="5555 4444 3333 2222" required>
+								<div class="invalid-feedback">
+									Número do cartão de crédito é necessário
+								</div>
+							</div>
+
+							<div class="col-md-3">
+								<label for="cc-expiration" class="form-label">Expiração</label>
+								<input type="text" asp-for="MetodoPagamento.ExpiracaoCartao" class="form-control" id="cc-expiration" placeholder="12/18" required>
+								<div class="invalid-feedback">
+									Data de expiração é necessário
+								</div>
+							</div>
+
+							<div class="col-md-3">
+								<label for="cc-cvv" class="form-label">CVV</label>
+								<input type="text" asp-for="MetodoPagamento.CVVCartao" class="form-control" id="cc-cvv" placeholder="123" required>
+								<div class="invalid-feedback">
+									Código de segurança é necessário
+								</div>
+							</div>
+						</div>
+
+						<hr class="my-4">
+
+
+					</div>
+
+					<button class="w-100 btn btn-danger btn-lg mb-3" type="submit"> Concluir pagamento</button>
+
+				</form>
+				<a asp-action="PerfilUsuario" class="btn btn-primary" asp-controller="Home" style="color: white;">Voltar para perfil</a>
+			</div>
+		</div>
+	</main>
+
+
+</div>
