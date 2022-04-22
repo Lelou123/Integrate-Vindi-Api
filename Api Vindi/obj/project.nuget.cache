@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PBjVrmgPQdDfmo8lwZ66Kx+upGIi1c8s3mvoBi+apd9caY0X1soE8dg78flG03u+maXIJPRiBttZDoWDhZG9iQ==",
+  "dgSpecHash": "Nd2foVKHZjpI89aq4SLSiYrAUR+9jVBILD1/H2iB4pflXD4KZ/F4LhtxpljsZ5Czd09Bb0ukl4Sqzu+mmlhNOQ==",
   "success": true,
-  "projectFilePath": "Z:\\Mundiware\\Projeto Treino\\Api Vindi\\Api Vindi\\Api Vindi.csproj",
+  "projectFilePath": "Z:\\Mundiware\\vindi-murilo\\Api Vindi\\Api Vindi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Muril\\.nuget\\packages\\azure.core\\1.22.0\\azure.core.1.22.0.nupkg.sha512",
     "C:\\Users\\Muril\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

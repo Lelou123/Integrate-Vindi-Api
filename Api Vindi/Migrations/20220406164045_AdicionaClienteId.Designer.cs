@@ -3,14 +3,16 @@ using Api_Vindi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Api_Vindi.Migrations
 {
     [DbContext(typeof(Api_VindiContext))]
-    partial class Api_VindiContextModelSnapshot : ModelSnapshot
+    [Migration("20220406164045_AdicionaClienteId")]
+    partial class AdicionaClienteId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

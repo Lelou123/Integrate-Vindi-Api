@@ -31,23 +31,7 @@
 
 	<main>
 		<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-			<div class="col">
-				<div class="card mb-4 rounded-3 shadow-sm">
-					<div class="card-header py-3">
-						<h4 class="my-0 fw-normal">Gratuito</h4>
-					</div>
-					<div class="card-body">
-						<h1 class="card-title pricing-card-title">R$0<small class="text-muted fw-light">/m</small></h1>
-						<ul class="list-unstyled mt-3 mb-4">
-							<li>Acesso a 1 materia extra</li>
-							<li>Favoritar postagens</li>
-							<li>Ajuda do suporte</li>
-							<li>Comentarios em posts</li>
-						</ul>
-						<button type="button" class="w-100 btn btn-lg btn-outline-primary">Gratuito</button>
-					</div>
-				</div>
-			</div>
+
 
 			<div class="col">
 				<div class="card mb-4 rounded-3 shadow-sm">
@@ -62,9 +46,8 @@
 							<li>Prioridade do suporte</li>
 							<li>Acesso ao centro de ajuda</li>
 						</ul>
-						<a class="btn btn-primary btn-lg" asp-action="ConcluirPlanoBasico" asp-controller="Home">Assine Agora</a>	
-						<!--<a class="btn btn-primary btn-lg"   href="ConcluirCadastro?plano=Premium"></a>
-						-->
+						<a class="btn btn-primary btn-lg" asp-action="ConcluirPlanoBasico" asp-controller="Home">Assine Agora</a>
+
 					</div>
 				</div>
 			</div>
@@ -81,11 +64,39 @@
 							<li>Ofertas exclusivas</li>
 							<li>Suporte 24h</li>
 						</ul>
-						<button type="button" class="w-100 btn btn-lg btn-primary">Assine Agora</button>
+						<a class="btn btn-primary btn-lg" asp-action="ConcluirPlanoPremium" asp-controller="Home">Assine Agora</a>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		@if (TempData["plandate"] != null)
+		{
+			<div class="text-center mb-3">
+				<h3>Seu plano atual é o @TempData["planame"] e válido até </h3>
+				<h4>@TempData["plandate"]</h4>
+			</div>
+			
+		}
+
+		@if (TempData["billdate"] != null)
+		{	
+			<div class="text-center mb-3">
+				<h3>Seu plano atual é o @TempData["billname"] e válido até </h3>
+				<h4>@TempData["billdate"]</h4>
+			</div>
+			
+		}
+
+		@if (TempData["plandate"] != null)
+		{
+			<div class="text-center">
+				<form asp-action="Desinscrever" asp-controller="Home" method="post" >
+					<button type="submit" class="btn btn-danger mb-5" >Desinscrever-se</button>
+				</form>				
+			</div>
+		}
+
 
 		<h2 class="display-6 text-center mb-4">Compare os planos</h2>
 
